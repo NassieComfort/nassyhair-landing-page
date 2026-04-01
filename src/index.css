@@ -1,0 +1,393 @@
+:root {
+  --text: #4b3a4e;
+  --text-h: #1b0d22;
+  --bg: #fff8f6;
+  --border: #e8dee5;
+  --code-bg: #f4f3ec;
+  --accent: #b45fcc;
+  --accent-soft: #f6e6fa;
+  --shadow: rgba(0, 0, 0, 0.08) 0 16px 24px -12px;
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'Georgia', serif;
+  --mono: ui-monospace, Consolas, monospace;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  width: min(1126px, 100%);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--heading);
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin: 0.5rem 0;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1rem;
+}
+
+.navbar-brand h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--accent);
+}
+
+main {
+  flex: 1;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 4rem 0;
+  min-height: 80vh;
+  color: #1b0d22;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 244, 250, 0.88), rgba(255, 255, 255, 0.46));
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-copy {
+  max-width: 42rem;
+}
+
+.hero-copy .badge,
+.hero-copy .tagline {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.08;
+  margin: 0.75rem 0 1rem;
+  font-weight: 600;
+  color: rgba(11, 3, 14, 0.88);
+}
+
+.hero-copy p {
+  margin-top: 1rem;
+  color: rgba(9, 3, 12, 0.82);
+  font-size: 1.25rem;
+  max-width: 38rem;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.hero-actions .button {
+  min-width: 10rem;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 1rem;
+}
+
+.hero-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(229, 208, 236, 0.75);
+  border-radius: 22px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.85rem;
+  width: min(150px, 100%);
+  margin-left: auto;
+}
+
+.hero-text {
+  font-size: 0.95rem ;
+  color: #65516c;
+}
+.hero-card span {
+  display: block;
+  padding: 0.75rem 0.95rem;
+  border-radius: 999px;
+  background: rgba(252, 240, 252, 0.82);
+  color: rgba(78, 42, 98, 0.72);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.features {
+  padding: 4rem 0;
+}
+
+.section-header {
+  text-align: center;
+}
+
+.section-header h2 {
+  margin-top: 0.75rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+  color: #65516c;
+}
+
+.contact {
+  padding: 4rem 0;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 540px;
+  margin: 2rem auto 0;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--text-h);
+  text-align: left;
+}
+
+.contact-details {
+  margin: 1.5rem 0;
+  color: var(--text-h);
+}
+
+.contact-details p {
+  margin: 0.5rem 0;
+}
+
+.contact-details a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--text-h);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button.primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button.primary:hover {
+  transform: translateY(-1px);
+}
+
+.button.outlined {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.contact-form button {
+  width: fit-content;
+}
+
+.footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: #7c6678;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .hero-copy {
+    margin: 0 auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-visual {
+    order: -1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form {
+    width: 100%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #d8cbe4;
+    --text-h: #f5eff9;
+    --bg: #120d16;
+    --border: #2c2434;
+    --code-bg: #1b1324;
+    --accent: #c288ff;
+    --accent-soft: rgba(194, 132, 255, 0.14);
+  }
+  body {
+    background: #120d16;
+    color: var(--text);
+  }
+  .navbar-links a {
+    color: var(--text);
+  }
+}
